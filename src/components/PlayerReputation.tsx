@@ -1,4 +1,5 @@
-import { playerReputations } from "@/lib/mock-data";
+import { playerReputations, gameById, GAMES } from "@/lib/mock-data";
+import { useFilters, matchesFilters } from "@/lib/filter-context";
 import { Shield, ShieldAlert, ShieldCheck, ShieldX } from "lucide-react";
 
 const badgeMap = {
@@ -8,7 +9,14 @@ const badgeMap = {
   flagged:   { icon: ShieldX,     color: "text-toxic",    bg: "bg-toxic/15" },
 } as const;
 
+const gamesById = Object.fromEntries(GAMES.map((g) => [g.id, g]));
+
 export function PlayerReputation() {
+  const { filters } = useFilters();
+  const visible = playerReputations.filter((p) =>
+    matchesFilters({ gameId: p.mainGame, region: p.region, player: p.name }, filters, gamesById),
+  );
+
   return (
     <div className="glass-card rounded-2xl p-5">
       <div className="mb-4 flex items-end justify-between">
@@ -18,9 +26,13 @@ export function PlayerReputation() {
         </div>
       </div>
       <div className="space-y-2">
-        {playerReputations.map((p) => {
+        {visible.length === 0 && (
+          <p className="px-2 py-6 text-center text-xs text-muted-foreground">No players match filters.</p>
+        )}
+        {visible.map((p) => {
           const Badge = badgeMap[p.badge];
           const Icon = Badge.icon;
+          const game = gameById(p.mainGame);
           return (
             <div key={p.name} className="flex items-center gap-3 rounded-xl bg-background/30 p-3">
               <div className={`rounded-lg p-2 ${Badge.bg} ${Badge.color}`}>
@@ -44,7 +56,7 @@ export function PlayerReputation() {
                   />
                 </div>
                 <div className="mt-1 flex items-center justify-between text-[11px] text-muted-foreground">
-                  <span>{p.matches.toLocaleString()} matches · {p.toxicityRate}% toxic</span>
+                  <span>{game.emoji} {game.name} · {p.region} · {p.toxicityRate}% toxic</span>
                   <span className={p.trend >= 0 ? "text-positive" : "text-negative"}>
                     {p.trend >= 0 ? "▲" : "▼"} {Math.abs(p.trend)}
                   </span>
