@@ -35,6 +35,8 @@ function Dashboard() {
           <h2 className="text-2xl font-semibold tracking-tight">Sentiment Control Center</h2>
         </section>
 
+        <FilterBar />
+
         <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard label="Healthy Sentiment" value="76%" sub="Positive + Excited + Neutral" delta={4} icon={Smile} tone="positive" />
           <StatCard label="Active Players" value="42,189" sub="across 38 servers" delta={2} icon={Users} tone="primary" />
