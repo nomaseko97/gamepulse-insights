@@ -9,6 +9,7 @@ import { PlayerReputation } from "@/components/PlayerReputation";
 import { ModerationAlerts } from "@/components/ModerationAlerts";
 import { AISummary } from "@/components/AISummary";
 import { MatchmakingPanel } from "@/components/MatchmakingPanel";
+import { FilterBar } from "@/components/FilterBar";
 import { MessageCircle, ShieldAlert, Smile, Users } from "lucide-react";
 
 export const Route = createFileRoute("/")({
