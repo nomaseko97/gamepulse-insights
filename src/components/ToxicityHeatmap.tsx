@@ -1,4 +1,5 @@
 import { heatmapData } from "@/lib/mock-data";
+import { useFilters } from "@/lib/filter-context";
 
 function cellColor(v: number) {
   // 0 -> background, 100 -> toxic
