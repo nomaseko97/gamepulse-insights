@@ -9,6 +9,7 @@ import { PlayerReputation } from "@/components/PlayerReputation";
 import { ModerationAlerts } from "@/components/ModerationAlerts";
 import { AISummary } from "@/components/AISummary";
 import { MatchmakingPanel } from "@/components/MatchmakingPanel";
+import { FilterBar } from "@/components/FilterBar";
 import { MessageCircle, ShieldAlert, Smile, Users } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -33,6 +34,8 @@ function Dashboard() {
           </div>
           <h2 className="text-2xl font-semibold tracking-tight">Sentiment Control Center</h2>
         </section>
+
+        <FilterBar />
 
         <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard label="Healthy Sentiment" value="76%" sub="Positive + Excited + Neutral" delta={4} icon={Smile} tone="positive" />

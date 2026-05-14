@@ -1,4 +1,5 @@
 import { heatmapData } from "@/lib/mock-data";
+import { useFilters } from "@/lib/filter-context";
 
 function cellColor(v: number) {
   // 0 -> background, 100 -> toxic
@@ -7,6 +8,8 @@ function cellColor(v: number) {
 }
 
 export function ToxicityHeatmap() {
+  const { filters } = useFilters();
+  const rows = filters.region ? heatmapData.filter((r) => r.region === filters.region) : heatmapData;
   return (
     <div className="glass-card rounded-2xl p-5">
       <div className="mb-4 flex items-end justify-between">
@@ -30,7 +33,7 @@ export function ToxicityHeatmap() {
               </div>
             ))}
           </div>
-          {heatmapData.map((row) => (
+          {rows.map((row) => (
             <div key={row.region} className="mb-1 grid items-center gap-px" style={{ gridTemplateColumns: "80px repeat(24, minmax(0,1fr))" }}>
               <div className="text-xs text-muted-foreground">{row.region}</div>
               {row.hours.map((v, i) => (
