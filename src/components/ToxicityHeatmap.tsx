@@ -8,6 +8,8 @@ function cellColor(v: number) {
 }
 
 export function ToxicityHeatmap() {
+  const { filters } = useFilters();
+  const rows = filters.region ? heatmapData.filter((r) => r.region === filters.region) : heatmapData;
   return (
     <div className="glass-card rounded-2xl p-5">
       <div className="mb-4 flex items-end justify-between">
