@@ -74,14 +74,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "GamePulse" },
+      { name: "description", content: "GamePulse AI is an AI-powered gaming analytics platform that monitors player emotions, detects toxicity and improves online gaming experiences through real-time" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "GamePulse" },
+      { property: "og:description", content: "GamePulse AI is an AI-powered gaming analytics platform that monitors player emotions, detects toxicity and improves online gaming experiences through real-time" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "GamePulse" },
+      { name: "twitter:description", content: "GamePulse AI is an AI-powered gaming analytics platform that monitors player emotions, detects toxicity and improves online gaming experiences through real-time" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/764b8894-6184-4d61-a51a-6121272fcc5d/id-preview-104362f0--d75b76bd-9425-4ed4-ad3b-0f7f4847479f.lovable.app-1778753932766.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/764b8894-6184-4d61-a51a-6121272fcc5d/id-preview-104362f0--d75b76bd-9425-4ed4-ad3b-0f7f4847479f.lovable.app-1778753932766.png" },
     ],
     links: [
       {
