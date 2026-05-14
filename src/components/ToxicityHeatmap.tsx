@@ -33,7 +33,7 @@ export function ToxicityHeatmap() {
               </div>
             ))}
           </div>
-          {heatmapData.map((row) => (
+          {rows.map((row) => (
             <div key={row.region} className="mb-1 grid items-center gap-px" style={{ gridTemplateColumns: "80px repeat(24, minmax(0,1fr))" }}>
               <div className="text-xs text-muted-foreground">{row.region}</div>
               {row.hours.map((v, i) => (
