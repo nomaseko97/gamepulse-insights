@@ -128,10 +128,21 @@ export const trendData = Array.from({ length: 24 }, (_, i) => {
 
 export const heatmapRegions = [...REGIONS];
 
-export const heatmapData = heatmapRegions.map((region) => ({
-  region,
-  hours: Array.from({ length: 24 }, () => Math.round(Math.random() * 100)),
-}));
+// Deterministic pseudo-random so SSR and client render the same heatmap.
+function seeded(seed: number) {
+  let s = seed >>> 0;
+  return () => {
+    s = (s * 1664525 + 1013904223) >>> 0;
+    return s / 0xffffffff;
+  };
+}
+export const heatmapData = heatmapRegions.map((region, ri) => {
+  const rand = seeded(ri * 9973 + 7);
+  return {
+    region,
+    hours: Array.from({ length: 24 }, () => Math.round(rand() * 100)),
+  };
+});
 
 export interface ModAlert {
   id: string;
