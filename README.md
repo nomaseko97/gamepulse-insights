@@ -4,6 +4,8 @@
 
 GamePulse is an AI-powered gaming sentiment analysis platform. It ingests player chat in real time, classifies each message into six emotional categories (positive, excited, neutral, frustrated, negative, toxic), and surfaces the results through a live moderation dashboard with toxicity heatmaps, player reputation scores, behavior-aware matchmaking, and AI-generated summaries.
 
+Checkout the project live on https://gamepulse-ai-harmony.lovable.app
+
 ---
 
 ## Table of contents
